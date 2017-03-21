@@ -40,7 +40,7 @@ class SimpleChat(WebSocket):
         for client in self.server.connections.itervalues():
             if client != self:
                 try:
-                    client.sendMessage(str(self.address[0]) + ' - ' + str(self.data))
+                    client.sendMessage(str(self.address[0]) + ":" + str(self.address[1]) + ' - ' + str(self.data))
                 except Exception as n:
                     print n
 
@@ -49,7 +49,7 @@ class SimpleChat(WebSocket):
         for client in self.server.connections.itervalues():
             if client != self:
                 try:
-                    client.sendMessage(str(self.address[0]) + ' - connected')
+                    client.sendMessage(str(self.address[0]) + ":" + str(self.address[1]) + ' - connected')
                 except Exception as n:
                     print n
 
@@ -58,7 +58,7 @@ class SimpleChat(WebSocket):
         for client in self.server.connections.itervalues():
             if client != self:
                 try:
-                    client.sendMessage(str(self.address[0]) + ' - disconnected')
+                    client.sendMessage(str(self.address[0]) + ":" + str(self.address[1]) + ' - disconnected')
                 except Exception as n:
                     print n
 
